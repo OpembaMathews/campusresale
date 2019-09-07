@@ -6,12 +6,12 @@
 
  <header>
 
-  <div class="container p-4 p-md-5 text-white rounded bg-dark">
+  <div class="container p-4 p-md-5 text-white rounded bg-primary">
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">Buy & Sell Secondhand Goods!</h1>
       <p class="lead my-3">Campus Resale App is a Fast selling and buying online
         shopping centre for secondhand goods within Dedan Kimathi University of Technology.</p>
-      <p class="lead mb-0"><a href="about.html" class="text-white font-weight-bold">Continue reading...</a></p>
+      <p class="lead mb-0"><a href="{% url 'about' %}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
   </div>
  </header>
@@ -20,9 +20,9 @@
  <div class="container">
 
    <h1 class="my-4">Welcome to Modern Business</h1>
-
+    <!-- <h2> Product Categories</h2> -->
    <!-- Marketing Icons Section -->
-   <div class="row">
+   <!-- <div class="row">
      <div class="col-lg-4 mb-4">
        <div class="card h-100">
          <h4 class="card-header">Stationary</h4>
@@ -56,12 +56,12 @@
          </div>
        </div>
      </div>
-   </div>
+   </div> -->
    <!-- /.row -->
 
    <!-- Portfolio Section -->
-   <h2>Portfolio Heading</h2>
 
+{##} {% include 'campusresale/product_detail.html' %}
    <div class="row">
      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
        <div class="card h-100">

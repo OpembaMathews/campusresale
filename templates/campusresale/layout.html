@@ -6,7 +6,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  {% block title %}<title>Campus Resale </title>{% endblock %}
+  <title>
+    {% block title %}Campus Resale {% endblock %}
+  </title>
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
   crossorigin="anonymous">
@@ -19,10 +21,10 @@
 
 </head>
 
-<body id="bg-primary">
+<body>
 <div class="jumbotron-fluid p-4 p-md-5  ">
   <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary fixed-top">
      <div class="container">
        <a class="navbar-brand font-weight-bold " href="{% url 'index' %}">Campus Resale System</a>
        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,14 +42,32 @@
              <a class="nav-link" href="{% url 'login' %}">Login</a>
            </li>
 
-           <li class="nav-item ">
-             <a class="nav-link" href="{% url 'product_detail' %}">Product Details</a>
-           </li>
+
          </ul>
        </div>
      </div>
    </nav>
+<div class="" id="Subheading">
 
+    <div class="cart_product_form">
+      {% with total_items=cart|length  %}
+          {% if cart|length > 0 %}
+              Your cart:
+
+              <a href="{% url " cart: cart_detail" %}">
+                  {{ total_items }} items {{ total_items|pluralize  }}, ${{ cart.get_total }}
+              </a>
+          {% else %}
+          <div class="alert alert-warning" role="alert">
+            Your cart is empty.!
+          </div>
+
+          {% endif %}
+      {% endwith %}
+
+    </div>
+
+</div>
         {% block content %}
 
         {% endblock %}
@@ -55,7 +75,7 @@
 
 
         <!-- Footer -->
-        <footer class="container py-4 bg-dark">
+        <footer class="container py-4 bg-primary">
           <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Campusystems.com 2019</p>
           </div>
