@@ -1,10 +1,7 @@
-
-
-from django.conf.urls import url , include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 urlpatterns = [
-    url('^admin/', admin.site.urls),
-    url('^home/' ,include( 'campusresale.urls')),
+    path('admin/', admin.site.urls),
+    path('home/' ,include( 'campusresale.urls')),
 ]
